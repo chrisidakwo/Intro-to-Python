@@ -1,0 +1,18 @@
+#CARS#
+Toyota Corolla,45.34,5,4,FHJO0345L89S
+Toyota Corolla,45.34,5,4,CC02PDL501S3
+Toyota Avensis,48.05,5,4,LA01LS03LQY
+Chevrolet Camaro,45.06,4,2,WG8JM5492DYI
+Chevrolet Camaro,45.06,4,2,KH4GM4564GD8
+Ford Fusion,44.29,5,4,AB4FG5689GMH
+Ford Fusion Hybrid,46.31,5,4,GH2KL4278TKR
+Ford Fusion Hybrid,46.31,5,4,KU4EG3245RWU
+Chevrolet Impala,40.22,6,4,QD4PK739J4I2
+Chevrolet Impala,40.22,6,4,RK3BM4265YHW
+
+#VANS#
+make-model, kmltrs, num-passengers, vin
+
+
+#TRUCKS#
+kmltrs, length, num-rooms, vin
