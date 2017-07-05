@@ -1,5 +1,4 @@
 <h1>Introduction to Python</h1>
-<hr>
 
 This repository contains source codes for the <strong><em>Introduction to Python</em></strong> class by mHub, Lilongwe.
 
