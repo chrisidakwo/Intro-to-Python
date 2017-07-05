@@ -7,7 +7,7 @@ Create a folder called "classes" and place these files inside the folder:
 - using_property_decorators.py
 - working_with_classes.py
 
-Please ensure the folder has an __init__.py file. So that Python can mark
+Please ensure the folder has an "__ init __.py" file. So that Python can mark
 the folder as one a module root.
 
 Doing this will help you sort out the issues with relative import.
