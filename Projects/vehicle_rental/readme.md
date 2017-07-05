@@ -1,4 +1,4 @@
-Instructions
+##Instructions
 1. Update the VehicleStock.txt file to include data for vans and trucks, just like there is for cars. Don't remove the header lines for vans and trucks, that is, the lines that looks as such:
 
 #VANS#
