@@ -1,0 +1,25 @@
+URL
+Views - Function-Based Views (CRUD Actions)
+Models
+Forms
+Templates and URL Mapping
+
+
+Pagination
+Including images to an article
+Messages Framework ---FIX: get_absolute_url() returning a No ReverseMatch error for displaying success messsage
+Slug and SlugFields
+
+User
+Draft status of an Article
+Styling
+Static Files
+Search
+Basic customization of Admin view
+
+
+Sharing blog article on third-party social media sites
+Markdown
+Forms & Template Tags (Custom Template Tags)
+Comments (Using 3rd party solutions or building a custom app)
+Model Managers

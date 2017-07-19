@@ -1,0 +1,32 @@
+{% extends 'mhubblog_app/base.html' %}
+{% block page_title %}Articles List{% endblock %}
+{% block main_content %}
+	<a href="{% url 'mhubblog_app:index' %}" class="btn btn-primary">Go to Homepage</a>
+	<h1>All Articles</h1>
+	<ul style="list-style: none; -webkit-margin-start: 0; padding: 0;">
+		{% for article in articles %}
+			<li style="margin-bottom: 50px">
+				<h3>
+					<a href="{% url 'mhubblog_app:article-detail' article.slug %}">{{ article.title }}</a>
+				</h3>
+				<label><small style="font-size: small">Categories: {{ article.display_categories }}</small></label>
+				<p>{{ article.content }}</p>
+				<p><small>Published on: {{ article.date_created }}</small></p>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<div class="pagination">
+		<span class="step-links">
+			{% if articles.has_previous %}
+				<a href="?page={{ articles.previous_page_number }}">Previous</a>
+			{% endif %}
+			<span class="current">
+				Page {{ articles.number }} of {{ articles.paginator.num_pages }}
+			</span>
+			{% if articles.has_next %}
+				<a href="?page={{ articles.next_page_number }}">Next</a>
+			{% endif %}
+		</span>
+	</div>
+{% endblock %}

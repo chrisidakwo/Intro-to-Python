@@ -1,0 +1,27 @@
+{% extends "mhubblog_app/base.html" %}
+{% block page_title %}{{ article.title }}{% endblock %}
+{% block main_content %}
+	<ol class="breadcrumb">
+		<li><a href="{% url 'mhubblog_app:index' %}">Home</a></li>
+		<li><a href="{% url 'mhubblog_app:article-detail' article.slug %}">{{ article.title }}</a></li>
+	</ol>
+	<a href="{% url 'mhubblog_app:create-article' %}" class="btn btn-primary">Create New Article</a>
+	<h1>{{ article.title }}</h1>
+	<label><small>Categories: {{ article.display_categories }}</small></label>
+	<div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+	<hr>
+	<p>{{ article.content }}</p>
+	{% if request.user.is_staff %}
+		<ul class="list-inline mb-5">
+			<li>
+				<a href="{% url 'mhubblog_app:update-article' article.slug %}" class="btn-link">Edit Article</a>
+			</li>
+			<li>|</li>
+			<li>
+				<a href="{% url 'mhubblog_app:delete-article' article.slug %}" class="btn-link">Delete Article</a>
+			</li>
+		</ul>
+	{% endif %}
+	<hr>
+	<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+{% endblock %}

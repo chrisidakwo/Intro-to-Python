@@ -1,0 +1,43 @@
+{% extends 'mhubblog_app/base.html' %}
+{% load customcssclass %}
+{% block page_title %}Create an Article{% endblock %}
+{% block main_content %}
+	{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+				<li {% if message.tags %}class="{{ message.tag }}"{% endif %}>
+					{% if message.level == DEFAULT_MESSAGE_LEVEL.ERROR %}Important:{% endif %}
+					{{ message }}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<div class="row mb-5">
+		<a href="{% url 'mhubblog_app:index' %}" class="btn btn-success">Return Home</a>
+	</div>
+
+	<form action="{% url 'mhubblog_app:create-article' %}" method="post" class="form-horizontal"
+		  enctype="multipart/form-data">
+		{% csrf_token %}
+		<div id="div_id_title" class="form-group">
+			<label class="form-control-label">{{ form.title.label }}</label>
+			{{ form.title|addcssclass:"form-control" }}
+		</div>
+		<div id="div_id_image" class="form-group">
+			<label class="form-control-label">{{ form.image.label }}</label>
+			{{ form.image|addcssclass:"form-control" }}
+		</div>
+		<div id="div_id_content" class="form-group">
+			<label class="form-control-label">{{ form.content.label }}</label>
+			{{ form.content|addcssclass:"form-control" }}
+		</div>
+		<div id="div_id_category" class="form-group">
+			<label class="form-control-label">{{ form.categories.label }}</label>
+			{{ form.categories|addcssclass:"form-control" }}
+		</div>
+		<div id="div_id_submit" class="form-group">
+			<input type="submit" value="Create Article" class="btn btn-primary">
+		</div>
+	</form>
+{% endblock %}

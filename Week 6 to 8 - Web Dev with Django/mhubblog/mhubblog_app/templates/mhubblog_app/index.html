@@ -1,0 +1,55 @@
+{% extends 'mhubblog_app/base.html' %}
+{% load i18n %}
+{% block page_title %}Home{% endblock %}
+
+{% block main_content %}
+	<div class="mb-5">
+		<ul class="list-inline">
+			{% if request.user.is_authenticated %}
+				<li>Hello, {{ request.user.username }}</li>
+				<li><strong>|</strong></li>
+				<li><a href="{% url 'users-logout' %}">Logout</a></li>
+			{% else %}
+				<li><a href="{% url 'users-login' %}">Click Here to Login</a></li>
+			{% endif %}
+		</ul>
+	</div>
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+		<li><a href="{% url 'mhubblog_app:index' %}">{% trans 'Home' %}</a></li>
+	</ol>
+
+	<a href="{% url 'mhubblog_app:create-article' %}" class="btn btn-primary">Create New Article</a>
+
+	{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+				<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+					{% if "html_safe" in message.tags %}
+						{{ message|safe }}
+					{% else %}
+						{{ message }}
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<div class="mb-5">
+		<ul style="list-style: none; -webkit-margin-start: 0; padding: 0">
+			{% for article in articles %}
+				<li style="margin-bottom: 50px;">
+					<h3><a href="{% url 'mhubblog_app:article-detail' article.slug %}">{{ article.title }}</a></h3>
+					<label>{{ article.display_categories }}</label>
+					<p>Published by: {{ article.publisher }}</p>
+					{% if article.image %}
+						<div class="mb-5">
+							<img src="{{ article.image.url }}" class="img-responsive">
+						</div>
+					{% endif %}
+					<p>{{ article.content }}<a>Read More</a></p>
+					<p><small>Date Published: {{ article.date_created }}</small></p>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
