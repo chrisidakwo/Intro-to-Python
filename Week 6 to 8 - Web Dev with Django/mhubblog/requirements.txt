@@ -13,7 +13,7 @@ fontawesome==4.7.0.post4
 html5lib==0.999999999
 markdown2==2.3.4
 MarkupSafe==0.23
-Pillow==4.1.1
+Pillow==9.0.1
 pyga==2.5.1
 pygal==2.3.1
 pygal-maps-world==1.0.2
